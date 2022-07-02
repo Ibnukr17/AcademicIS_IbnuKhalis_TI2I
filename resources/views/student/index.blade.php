@@ -40,7 +40,7 @@
 
                 <td>{{ $mhs->nim }}</td>
                 <td>{{ $mhs->name }}</td>
-                <td>{{ $mhs->kelas }}</td>
+                <td>{{ $mhs->kelas->kelas_name ?? 'TI 2I'}}</td>
                 <td>{{ $mhs->major }}</td>
                 <td>{{ $mhs->address }}</td>
                 <td>{{ $mhs->dateofbirth }}</td>

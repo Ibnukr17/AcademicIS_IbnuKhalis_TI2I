@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use App\Models\KelasModel;
+use App\Models\CourseStudentModel;
 
 class StudentController extends Controller
 {
@@ -165,6 +166,14 @@ class StudentController extends Controller
         return redirect()->route('student.index')
             ->with('success', 'Student Successfully Deleted');
     }
+
+    public function value($nim)
+    {
+        $value = Student::with('kelas','course')->find($nim);
+
+        return view('student.value',compact('value'));
+    }
+
     public function search(Request $request)
     {
         $keyword = $request->search;
